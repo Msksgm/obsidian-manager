@@ -1,8 +1,9 @@
 {
+  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // Environment setup & latest features
-    "lib": ["ESNext"],
-    "target": "ESNext",
+    "lib": ["esnext"],
+    "target": "esnext",
     "module": "Preserve",
     "moduleDetection": "force",
     "jsx": "react-jsx",

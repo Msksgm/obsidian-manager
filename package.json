@@ -1,6 +1,10 @@
 {
   "name": "obsidian-script",
-  "module": "index.ts",
+  "module": "src/main.ts",
+  "scripts": {
+    "build":  "NODE_ENV=production bun build --compile --minify --sourcemap --bytecode ./src/main.ts --outfile ./dist/claude-code-config-manager",
+    "clean": "rm -rf ./dist"
+  },
   "type": "module",
   "private": true,
   "devDependencies": {

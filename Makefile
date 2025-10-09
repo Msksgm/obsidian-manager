@@ -6,6 +6,14 @@ install: ## 依存関係のインストール
 type.check: ## TypeScriptの型チェック
 	bun run type-check
 
+.PHONY: lint
+lint: ## lint を実行
+	bun run lint
+
+.PHONY: fmt
+fmt: ## format を実行
+	bun run lint:fix
+
 ################################################################################
 # Utility-Command help
 ################################################################################

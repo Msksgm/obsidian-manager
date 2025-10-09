@@ -1,15 +1,40 @@
 {
-  "name": "obsidian-script",
+  "name": "claude-code-config-manager",
+  "version": "1.0.0",
   "module": "src/main.ts",
-  "scripts": {
-    "build":  "NODE_ENV=production bun build --compile --minify --sourcemap --bytecode ./src/main.ts --outfile ./dist/claude-code-config-manager",
-    "clean": "rm -rf ./dist",
-    "type-check": "tsc -noEmit"
-  },
   "type": "module",
+  "scripts": {
+    "build": "NODE_ENV=production bun build --compile --minify --sourcemap --bytecode ./src/main.ts --outfile ./dist/claude-code-config-manager",
+    "clean": "rm -rf ./dist",
+    "type-check": "tsc -noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@eslint/js": "^9.36.0",
+    "@types/bun": "^1.2.23",
+    "@types/eslint": "^9.6.1",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "deepmerge": "^4.3.1",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsdoc": "^60.5.0",
+    "eslint-plugin-n": "^17.23.1",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "typescript-eslint": "^8.45.0"
   },
   "peerDependencies": {
     "typescript": "^5"

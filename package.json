@@ -1,20 +1,23 @@
 {
-  "name": "claude-code-config-manager",
+  "name": "obsidian-manager",
   "version": "1.0.0",
   "module": "src/main.ts",
   "type": "module",
+  "bin": {
+    "obsidian-manager": "./dist/obsidian-manager"
+  },
   "scripts": {
-    "build": "NODE_ENV=production bun build --compile --minify --sourcemap --bytecode ./src/main.ts --outfile ./dist/claude-code-config-manager",
+    "build": "NODE_ENV=production bun build --compile --minify --sourcemap --bytecode ./src/main.ts --outfile ./dist/obsidian-manager",
     "clean": "rm -rf ./dist",
     "type-check": "tsc -noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
-  "keywords": [],
+  "keywords": ["obsidian", "macos", "sleep", "wake", "launchagent"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "CLI tool to manage Obsidian app with macOS sleep/wake events",
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -42,6 +45,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "commander": "^14.0.1",
     "pino": "^9.12.0",
     "pino-pretty": "^13.1.1"
   }

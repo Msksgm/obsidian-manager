@@ -26,7 +26,7 @@ export const createLogger = (level: LevelWithSilentOrString = 'info'): ILogger =
 
   const pinoLogger = pino(
     {
-      name: 'claude-code-config-manager',
+      name: 'obsidian-manager',
       level,
     },
     stream,

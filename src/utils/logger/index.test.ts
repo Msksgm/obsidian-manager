@@ -27,14 +27,14 @@ describe('logger', () => {
     it('デフォルトでinforベルのロガーを作成', async () => {
       createLogger();
 
-      expect(mockPino).toHaveBeenCalledWith({ name: 'claude-code-config-manager', level: 'info' }, expect.any(Object));
+      expect(mockPino).toHaveBeenCalledWith({ name: 'obsidian-manager', level: 'info' }, expect.any(Object));
     });
 
     it('指定したレベルでロガーを作成', async () => {
       const level: LevelWithSilentOrString = 'debug';
       createLogger(level);
 
-      expect(mockPino).toHaveBeenCalledWith({ name: 'claude-code-config-manager', level: 'debug' }, expect.any(Object));
+      expect(mockPino).toHaveBeenCalledWith({ name: 'obsidian-manager', level: 'debug' }, expect.any(Object));
     });
 
     it('infoレベルの場合、適切な設定でpino-prettyを呼び出す', async () => {

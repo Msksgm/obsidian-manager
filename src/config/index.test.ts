@@ -1,5 +1,6 @@
 import os from 'node:os';
 import path from 'node:path';
+
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { createConfig } from './index.ts';
@@ -7,7 +8,9 @@ import { createConfig } from './index.ts';
 describe('config', () => {
   const mockHomedir = '/Users/testuser';
   const mockExecPath = '/Users/testuser/work_space/PersonalDev/obsidian-script/dist/obsidian-manager';
+  const mockCwd = '/Users/testuser/obsidian-vault';
   const originalExecPath = process.execPath;
+  const originalCwd = process.cwd;
 
   beforeEach(() => {
     vi.spyOn(os, 'homedir').mockReturnValue(mockHomedir);
@@ -24,6 +27,8 @@ describe('config', () => {
       writable: true,
       configurable: true,
     });
+
+    process.cwd = () => mockCwd;
   });
 
   afterEach(() => {
@@ -33,6 +38,7 @@ describe('config', () => {
       writable: true,
       configurable: true,
     });
+    process.cwd = originalCwd;
   });
 
   describe('createConfig', () => {
@@ -44,6 +50,9 @@ describe('config', () => {
         plist: {
           label: 'com.user.obsidian-manager',
           path: '/Users/testuser/Library/LaunchAgents/com.user.obsidian-manager.plist',
+        },
+        obsidian: {
+          valutePath: '/Users/testuser/obsidian-vault',
         },
         sleepwatcherPath: '/usr/local/sbin/sleepwatcher',
       });

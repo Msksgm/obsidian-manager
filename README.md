@@ -1,15 +1,14 @@
-# obsidian-script
+# obsidian-manager
 
-To install dependencies:
+obsidian の起動や markdown ファイルの処するためのコマンドラインツール。
 
-```bash
-bun install
-```
+## 機能一覧
 
-To run:
+- Obsidian の起動: open
+- Obsidian の終了: stop
+- Obsidian の sleepwatcher を plist に登録: install
+- TODO を引き継いだ Markdown ファイルの作成: next-day
 
-```bash
-bun run src/main.ts
-```
+## 追加実装予定
 
-This project was created using `bun init` in bun v1.2.23. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+- auto commit コマンド

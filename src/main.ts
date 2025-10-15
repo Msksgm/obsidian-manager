@@ -3,6 +3,7 @@
 import { Command } from 'commander';
 
 import { install } from './commands/install';
+import { nextDay } from './commands/next-day';
 import { start } from './commands/start';
 import { status } from './commands/status';
 import { stop } from './commands/stop';
@@ -60,6 +61,15 @@ const main = async () => {
     .description('Manually stop Obsidian')
     .action(async () => {
       await stop(logger, obsidianUtil);
+    });
+
+  program
+    .command('next-day')
+    .description('Create next day daily note with TODOs from previous day')
+    .option('-d, --date <YYYY-MM-DD>', 'Base date (required)')
+    .option('-p, --path <path>', 'Obsidian Vault path (required)')
+    .action(async (options) => {
+      await nextDay(logger, config, options);
     });
 
   await program.parseAsync(process.argv);

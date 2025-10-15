@@ -27,7 +27,7 @@ export const install = async (logger: ILogger, config: Config): Promise<void> =>
 
   // ラッパースクリプトを生成
   const sleepScript = `${cliPath} stop`;
-  const wakeScript = `${cliPath} start`;
+  const wakeScript = `${cliPath} next-day --date $(date -v-1d '+%Y-%m-%d') --path ${config.obsidian.valutePath} ; ${cliPath} start`;
 
   // plistを生成
   const plistContent = generatePlist({

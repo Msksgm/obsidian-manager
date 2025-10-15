@@ -83,6 +83,9 @@ describe('install', () => {
         label: 'com.test.obsidian',
         path: '/path/to/LaunchAgents/com.test.obsidian.plist',
       },
+      obsidian: {
+        valutePath: '/path/to/vault',
+      },
     });
 
     // sleepwatcherが存在する
@@ -102,7 +105,8 @@ describe('install', () => {
     expect(mockGeneratePlist).toHaveBeenCalledWith({
       config,
       sleepScript: '/path/to/project/dist/obsidian-manager stop',
-      wakeScript: '/path/to/project/dist/obsidian-manager start',
+      wakeScript:
+        "/path/to/project/dist/obsidian-manager next-day --date $(date -v-1d '+%Y-%m-%d') --path /path/to/vault ; /path/to/project/dist/obsidian-manager start",
     });
     expect(mockWriteFileSync).toHaveBeenCalledWith(
       '/path/to/LaunchAgents/com.test.obsidian.plist',
